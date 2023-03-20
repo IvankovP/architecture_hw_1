@@ -6,7 +6,13 @@ public class Calculations {
 
     }
 
-    public static double[] solve(double a, double b, double c) {
+    public static double[] solve(double a, double b, double c) throws IllegalArgumentException {
+
+        double epsilon = Math.pow(10d, -6);
+
+        if (a > -epsilon && a < epsilon) {
+            throw new IllegalArgumentException("First parameter must not equals zero");
+        }
 
         double D = b * b - 4 * a * c;
 
@@ -17,7 +23,7 @@ public class Calculations {
             return new double[]{x, y};
         }
 
-        if (D >= 0 && D < Math.pow(10d, -6)) {
+        if (D > -epsilon && D < epsilon) {
             double x = (-b + Math.sqrt(D)) / 2 * a;
 
             return new double[]{x};

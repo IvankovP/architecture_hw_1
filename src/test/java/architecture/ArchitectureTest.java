@@ -24,10 +24,15 @@ class ArchitectureTest {
 
     @Test
     void oneRootTest() {
-        double a = 1, b =2, c = 1;
+        double a = 1, b = 2, c = 1;
         double[] result = Calculations.solve(a, b, c);
 
         assertEquals(1, result.length);
         assertEquals(-1.0, result[0]);
+    }
+
+    @Test
+    void firstParameterNotEqualsZeroTest() {
+        assertThrows(IllegalArgumentException.class, () -> Calculations.solve(0, 2, 1));
     }
 }
