@@ -8,27 +8,24 @@ class ArchitectureTest {
 
     @Test
     void bEqualsZeroTest() {
-        double a = 1, c = 1;
-        assertArrayEquals(new double[0], Calculations.solve(a, 0, c));
+        assertArrayEquals(new double[0], Calculations.solve(1, 0, 1));
     }
 
     @Test
     void bEqualsZeroAndCNegativeTest() {
-        double a = 1, c = -1;
-        double[] result = Calculations.solve(a, 0, c);
+        double[] result = Calculations.solve(1, 0, -1);
 
         assertEquals(2, result.length);
-        assertEquals(1.0, result[0]);
-        assertEquals(-1.0, result[1]);
+        assertEquals(1d, result[0]);
+        assertEquals(-1d, result[1]);
     }
 
     @Test
     void oneRootTest() {
-        double a = 1, b = 2, c = 1;
-        double[] result = Calculations.solve(a, b, c);
+        double[] result = Calculations.solve(1, 2, 1);
 
         assertEquals(1, result.length);
-        assertEquals(-1.0, result[0]);
+        assertEquals(-1d, result[0]);
     }
 
     @Test
@@ -38,9 +35,14 @@ class ArchitectureTest {
 
     @Test
     void discriminantEqualsZeroTest() {
-        double a = 0.01, b = 0.001, c = 0.00001;
-        double[] result = Calculations.solve(a, b, c);
+        double[] result = Calculations.solve(0.01, 0.001, 0.00001);
 
         assertEquals(1, result.length);
+    }
+
+    @Test
+    void notNumberTest() {
+        //данный тест сделан для примера, но думаю достаточно было сделать public static double[] solve(double a, double b, double c)
+        assertThrows(IllegalArgumentException.class, () -> Calculations.solve(null, null, null));
     }
 }
