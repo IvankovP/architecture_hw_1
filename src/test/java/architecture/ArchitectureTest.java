@@ -2,13 +2,13 @@ package architecture;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class ArchitectureTest {
 
     @Test
-    void test() {
-        int a = 64;
-        assertEquals(64, a);
+    void bEqualsZeroTest() {
+        double a = 1, c = 1;
+        assertArrayEquals(new double[0], Calculations.solve(a, 0, c));
     }
 }
