@@ -18,7 +18,16 @@ class ArchitectureTest {
         double[] result = Calculations.solve(a, 0, c);
 
         assertEquals(2, result.length);
-        assertEquals(0.0, Math.abs(result[0] % 1));
-        assertEquals(0.0, Math.abs(result[1] % 1));
+        assertEquals(1.0, result[0]);
+        assertEquals(-1.0, result[1]);
+    }
+
+    @Test
+    void oneRootTest() {
+        double a = 1, b =2, c = 1;
+        double[] result = Calculations.solve(a, b, c);
+
+        assertEquals(1, result.length);
+        assertEquals(-1.0, result[0]);
     }
 }
