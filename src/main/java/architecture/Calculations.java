@@ -10,10 +10,18 @@ public class Calculations {
 
         double D = b * b - 4 * a * c;
 
-        if (D < 0) {
-            return new double[0];
+        if (D > 0) {
+            double x = (-b + Math.sqrt(D)) / 2 * a;
+            double y = (-b - Math.sqrt(D)) / 2 * a;
+
+            return new double[]{x, y};
+        }
+        if (D == 0) {
+            double x = (-b + Math.sqrt(D)) / 2 * a;
+
+            return new double[]{x};
         }
 
-        return null;
+        return new double[0];
     }
 }
