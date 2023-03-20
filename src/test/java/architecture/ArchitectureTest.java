@@ -35,4 +35,12 @@ class ArchitectureTest {
     void firstParameterNotEqualsZeroTest() {
         assertThrows(IllegalArgumentException.class, () -> Calculations.solve(0, 2, 1));
     }
+
+    @Test
+    void discriminantEqualsZeroTest() {
+        double a = 0.01, b = 0.001, c = 0.00001;
+        double[] result = Calculations.solve(a, b, c);
+
+        assertEquals(1, result.length);
+    }
 }
